@@ -1,20 +1,30 @@
 const button = document.querySelector('button')
 
+
 button.addEventListener('click', ()=>{
-let task=document.querySelector('input')
-let ul=document.querySelector('ul')
-ul.insertAdjacentHTML('beforeend',`<li> ${task.value} <button class="del">Supprimer</button> </li>` );
-task.value= " ";
-task.focus();
+const task=document.querySelector('input')
+const ul=document.querySelector('ul')
 
-const liste = document.querySelector('li')
-const del = document.querySelector('.del')
+const liste = document.createElement('li')
+liste.textContent = task.value
 
-del.addEventListener('click', ()=>{
+const del = document.createElement('button')
+del.textContent = "supprimer"
+
+liste.appendChild(del)
+ul.appendChild(liste)
+
+del.addEventListener('click', ()=>{   
     liste.remove()
-    })
+    });
+    
+task.value= "";
+task.focus();
+})
 
-});
+// ['click','ontouchstart'].forEach( evt => 
+//     element.addEventListener(evt, dosomething, false)
+// );
 
 
 
